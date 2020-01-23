@@ -30,4 +30,9 @@
         </action>
     </package>
     
+    <include file="Controller_cliente/cliente.xml"></include>
+    <include file="Controller_jefe_area/jefe_area.xml"></include> 
+    <!-- <include file="Controller_jefe_planta/jefe_planta.xml"></include> -->
+    <!-- <include file="Controller_secretaria/secretaria.xml></include> -->
+    
 </struts>
