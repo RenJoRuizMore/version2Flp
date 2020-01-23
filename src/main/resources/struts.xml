@@ -1,0 +1,33 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- Author: Rene Jose -->
+<struts>
+    <!-- Add your configuration elements here -->
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="loguear" class="Acciongenerico.AccionLoguear" method="Logueo">
+            <result name="cliente">/paginas/cliente/index_usuario.jsp </result>
+            <result name="secretaria">/paginas/secretaria/ConsultaPedidoPendiente.jsp </result>
+            <result name="jefe_area">/paginas/jefe_por_area/PedidoPendienteDerivadoArea.jsp </result>
+            <result name="jefe_planta">/paginas/jefe_planta/ConsultaPedidoPendiente.jsp </result>
+            <result name="noencontro">/error.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+        <!--Enlaces index -->
+        <action name="ir_index" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/index.jsp </result>            
+        </action>
+        <!-- enlace para registrar_clientes -->
+        <action name="ir_registro_usuario" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/RegistroUsuarios.jsp </result>            
+        </action>
+    </package>
+    <package name="default_json" extends="json-default">
+         <!-- ingrsar nuevo cliente -->
+        <action name="registrar_cliente" class="Acciongenerico.MetodosPublicos" method="registrar_usuario">
+              <result type="json" name="success"></result>
+        </action>
+    </package>
+    
+</struts>
