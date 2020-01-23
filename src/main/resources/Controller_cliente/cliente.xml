@@ -1,0 +1,37 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: Rene Jose -->
+ 
+<struts>
+    <!-- Add your configuration elements here -->
+      <package name="package_cliente" extends="struts-default">
+        <action name="ir_registrar_pedido" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/cliente/RegistroNuevoPedido.jsp </result>
+        </action>
+        <action name="ir_pedido_pendiente" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/cliente/ConsultaPedidoPendiente.jsp </result>
+        </action>
+         <action name="ir_producto_recpcionado" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/cliente/ProductoRecepcionado.jsp </result>
+        </action>
+    </package>
+    <!--  package de json -->
+    <package name="default_jsonnn" extends="json-default">
+         <!-- ingrsar nuevo cliente -->
+      <action name="ir_registrar_pedidosw" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/cliente/RegistroNuevoPedido.jsp </result>
+        </action>
+        
+        <!-- registar pedido  -->
+      <action name="llenar_combo_productoss" class="Accion_Clientes.Clientes_Registrar_Pedidos" method="llenar_combo_productos">
+             <result type="json">
+                <param name="root">lst_productos</param>
+            </result>
+            
+      </action>  
+        <!-- fin de registrar pedido -->
+    </package>
+    
+</struts>

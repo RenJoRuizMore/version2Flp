@@ -1,0 +1,13 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- Author: Rene Jose -->
+<struts>
+    <!-- Add your configuration elements here -->
+       <package name="default_jefe_area" extends="struts-default">
+        <action name="ir_pedidos_penditt" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_por_area/PedidoPendienteDerivadoArea.jsp </result>
+        </action>
+    </package>
+  
+</struts>

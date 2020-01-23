@@ -1,0 +1,31 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- Author: Rene Jose -->
+<struts>
+      <!-- Add your configuration elements here -->
+      <package name="package_jefe_planta" extends="struts-default">
+        <action name="ir_actualizar_clientes" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ActualizarDatosCliente.jsp </result>
+        </action>
+        <action name="ir_lista_jefe_areas" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ListaJefeCadaArea.jsp </result>
+        </action>
+         <action name="ir_actualizar_datos_empleados" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ActualizarDatosEmpleado.jsp </result>
+        </action>
+        
+        <action name="ir_consul_pedido" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ConsultaPedidoPendiente.jsp </result>
+        </action>
+        <action name="ir_configuracion" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/OpcionesConfiguracionSistema.jsp </result>
+        </action>
+         <action name="ir_resultados_encuestas" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ExportarResultadosEncuenta.jsp </result>
+        </action>
+        <action name="ir_actualizar_datos" class="Acciongenerico.AccionLoguear" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ActualizarDatosCliente.jsp </result>
+        </action>
+    </package>
+</struts>
