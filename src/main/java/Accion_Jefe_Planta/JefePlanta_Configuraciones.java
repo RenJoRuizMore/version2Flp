@@ -81,6 +81,14 @@ public class JefePlanta_Configuraciones {
         return pallet_por_contenedor_e;
     }
 
+    public void setCajas_por_pallet_e(int cajas_por_pallet_e) {
+        this.cajas_por_pallet_e = cajas_por_pallet_e;
+    }
+
+    public void setPallet_por_contenedor_e(int pallet_por_contenedor_e) {
+        this.pallet_por_contenedor_e = pallet_por_contenedor_e;
+    }
+
     
 
     public double getPrecio_pallet_aire_e() {
@@ -125,7 +133,6 @@ public class JefePlanta_Configuraciones {
     }
     
     public String guardar_configuracion() {
-
         try {
             String sql= "{call sp_actualizar_configuracion(?, ?, ?, ?, ?, ?, ?,?)}";
             CallableStatement call= BaseConexion.getprepareCall(sql);
@@ -138,10 +145,9 @@ public class JefePlanta_Configuraciones {
             call.setDouble(7,getPrecio_pallet_mar_e());
             call.setDouble(8,getPrecio_pallet_aire_e());
             call.executeUpdate();
-            
             return "success";
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"la ptm"+ ex);
+           
            return "error";
         }
     }

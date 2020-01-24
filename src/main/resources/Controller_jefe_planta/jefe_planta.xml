@@ -28,4 +28,20 @@
             <result name="success">/paginas/jefe_planta/ActualizarDatosCliente.jsp </result>
         </action>
     </package>
+    
+    <package name="json_jefe_planta" extends="json-default">
+        <action name="traer_datos_configuracion" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="listar_configuracion">
+            <result type="json">
+                <param name="root">obj_configuracion</param> 
+            </result>
+        </action>
+        <!-- action para guardar datos -->
+        <action name="guardar_configuraciones" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="guardar_configuracion">
+          <!--  <result name="success"></result> -->
+             <result type="json" name="success"></result>
+        </action>
+        
+        
+    </package> 
+    
 </struts>

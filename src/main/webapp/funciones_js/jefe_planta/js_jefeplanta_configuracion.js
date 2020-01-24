@@ -14,6 +14,7 @@ $(document).ready(function(){
         var tipo_cambio_compra = $('#txt_tipo_cambio_compra').val();
         var kilo_por_caja = $('#txt_kilos_por_caja').val();
         var cajas_por_pallet = $('#txt_num_cajas_pallet').val();
+        
         var pallet_por_contenedor= $('#txt_num_contene_pallet').val();
         var precio_pallet_aire =$('#txt_precio_env_areo').val();
         var precio_pallet_mar = $('#txt_precio_env_mari').val();
@@ -30,7 +31,7 @@ $(document).ready(function(){
                 alertify.success('se guardaron los cambios exitosamente');
            },
            error : function(response){
-               
+               alertify.success('hubo error en al consulta');
            }
         });
     });
