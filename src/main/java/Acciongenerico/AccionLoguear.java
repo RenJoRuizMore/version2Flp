@@ -58,7 +58,7 @@ public class AccionLoguear extends ActionSupport{
                  case 1:
                     return "cliente";
                   case 2:
-                      JOptionPane.showMessageDialog(null,"hola salio secretaria ");
+                      
                     return "secretaria";
                   case 3:
                     return "jefe_area";
