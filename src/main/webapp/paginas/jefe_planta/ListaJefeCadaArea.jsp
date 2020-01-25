@@ -26,7 +26,7 @@
     }
 </style>
 </head>
-<body onload="initialize()" class="inner_page innerpage">
+<body  class="inner_page innerpage">
     <div class="bg_parallax" id="inb">
         <!--navigation swipe-->
         <div class="menu-btn">&#9776;</div>
@@ -85,7 +85,7 @@
                                   
                                 <div class="">
                                       
-                                    <h2><a href="#"> Consulta de Pedidos </a><span></span></h2><br>
+                                    <h2><a href="#"> Lista de Jefes de Area </a><span></span></h2><br>
                                     <div class="row">
                                       
                                         <div class="col-sm-2" id="div_fechai">
@@ -131,46 +131,8 @@
                                                 <th class="text-center">Opciones</th>     
                                               </tr>
                                             </thead>                                            
-                                             <tbody id="contenido_factura">
-                                                 <tr>
-                                                     <td>1</td>
-                                                     <td>GERT ATOM</td>
-                                                     <td> INGENIOSSOFT</td>
-                                                     <td> RENEJOSE@HOMTIAL.COM</td>
-                                                     <td> renuc</td>
-                                                     <td> si</td>
-                                                     <td>Tolvado</td>
-                                                     <td>
-                                                         <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                 Ver Detalle de Cliente </a></p>
-                                                     </td>
-                                                 </tr>
-                                                   <tr>
-                                                     <td>1</td>
-                                                     <td>GERT ATOM</td>
-                                                     <td> INGENIOSSOFT</td>
-                                                     <td> RENEJOSE@HOMTIAL.COM</td>
-                                                     <td> renuc</td>
-                                                     <td> si</td>
-                                                     <td>Tolvado</td>
-                                                     <td>
-                                                         <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                 Ver Detalle de Cliente </a></p>
-                                                     </td>
-                                                 </tr>
-                                                   <tr>
-                                                     <td>1</td>
-                                                     <td>GERT ATOM</td>
-                                                     <td> INGENIOSSOFT</td>
-                                                     <td> RENEJOSE@HOMTIAL.COM</td>
-                                                     <td> renuc</td>
-                                                     <td> si</td>
-                                                     <td>Tolvado</td>
-                                                     <td>
-                                                         <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                 Ver Detalle de Cliente </a></p>
-                                                     </td>
-                                                 </tr>
+                                             <tbody id="contenido_lista_jefe_area">
+                                                
                                             </tbody>
                                           </table>
                                     </div>
@@ -198,6 +160,7 @@
 #################################
 -->
 <%@include file="../source_js/enlaces_js.jsp" %>
+<script type="text/javascript" src="./funciones_js/jefe_planta/js_listado_jefe_cada_area.js"></script>
 
 </body>
 </html>

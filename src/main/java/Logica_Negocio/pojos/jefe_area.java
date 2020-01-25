@@ -9,9 +9,9 @@ package Logica_Negocio.pojos;
  *
  * @author Rene Jose
  */
-public class jefe_area {
+public class jefe_area extends Persona{
     private int id_jefe_area;
-    private Persona obj_persona;
+ 
     private Area_produccion obj_area_produccion;
     private int estado;
 
@@ -23,13 +23,7 @@ public class jefe_area {
         this.id_jefe_area = id_jefe_area;
     }
 
-    public Persona getObj_persona() {
-        return obj_persona;
-    }
-
-    public void setObj_persona(Persona obj_persona) {
-        this.obj_persona = obj_persona;
-    }
+   
 
     public Area_produccion getObj_area_produccion() {
         return obj_area_produccion;

@@ -17,7 +17,9 @@ public abstract class Persona {
     private String genero;
     private String direccion;
     private int estado;
-    private int id_usuario;
+    //private int id_usuario;
+    // agegar al usuario 
+    private Usuario usuario;
     private String telefono;
 
     public int getId_persona() {
@@ -76,13 +78,17 @@ public abstract class Persona {
         this.estado = estado;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
+
+  
+
+   
 
     public String getTelefono() {
         return telefono;

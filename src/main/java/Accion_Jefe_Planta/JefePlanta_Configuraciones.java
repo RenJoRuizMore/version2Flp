@@ -10,16 +10,23 @@ package Accion_Jefe_Planta;
  * @author Rene Jose
  */
 
+import Logica_Negocio.pojos.Area_produccion;
 import Logica_Negocio.pojos.Configuracion;
+import Logica_Negocio.pojos.Persona;
+import Logica_Negocio.pojos.Usuario;
 import conexion.BaseConexion;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
+import Logica_Negocio.pojos.jefe_area;
+import java.util.List;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 public class JefePlanta_Configuraciones {
     Configuracion obj_configuracion;
     // listar la configuracion 
-
+    List<jefe_area> lst_jefe_area= new LinkedList<jefe_area>();
+    //:::::::::::. variables ::::::::::::::.
     double costo_malla_e;
     double kilo_por_caja_e; 
    
@@ -106,9 +113,56 @@ public class JefePlanta_Configuraciones {
     public void setPrecio_pallet_mar_e(double precio_pallet_mar_e) {
         this.precio_pallet_mar_e = precio_pallet_mar_e;
     }
+
+    public List<jefe_area> getLst_jefe_area() {
+        return lst_jefe_area;
+    }
+
+    public void setLst_jefe_area(List<jefe_area> lst_jefe_area) {
+        this.lst_jefe_area = lst_jefe_area;
+    }
     
     
     
+    // :::::::::::::::::::::::::. lista para jefe planta :::::::::::::::::::::::::::::::::::::::
+    public String listar_jefes_areas(){
+       try{
+           lst_jefe_area.clear();
+           String sql_listar = "select id_jefe_area,per.id_persona,are.id_area_produccion,nombre,apellidos,email,usuario,nombre_area\n"
+                   + " from jefe_de_area jef inner join persona per on jef.id_persona=per.id_persona inner join usuario us on\n"
+                   + " per.id_persona = us.id_persona inner join area_produccion are on\n"
+                   + "jef.id_area_produccion = are.id_area_produccion group by id_jefe_area;";
+           ResultSet resultado = BaseConexion.getStatement().executeQuery(sql_listar);
+           while (resultado.next()) {
+               jefe_area obj_jefe_area = new jefe_area();
+               obj_jefe_area.setId_jefe_area(resultado.getInt(1));
+               obj_jefe_area.setId_persona(resultado.getInt(2));
+               Area_produccion obj_area = new Area_produccion();
+               obj_area.setId_area_produccion(resultado.getInt(3));
+               obj_jefe_area.setNombre(resultado.getString(4));
+               obj_jefe_area.setApellidos(resultado.getString(5));
+               obj_jefe_area.setEmail(resultado.getString(6));
+               // campos de usuario
+               Usuario obj_user = new Usuario();
+               obj_user.setUser(resultado.getString(7));
+               obj_jefe_area.setUsuario(obj_user);
+               obj_area.setNombre_area_produccion(resultado.getString(8));
+               // enlazar el jefe de area con el area de produccion
+               obj_jefe_area.setObj_area_produccion(obj_area);
+               lst_jefe_area.add(obj_jefe_area);
+           }
+           return "success";
+       }
+       catch(SQLException ex){
+           JOptionPane.showMessageDialog(null, ex);
+          return "error";
+       }
+        
+    }
+    
+    
+    
+    ///:::::::::::::::::::::::::::::::::::::::::: configuraciones ::::::::::::::::::::::::::::////
     public String listar_configuracion(){
        try{
           obj_configuracion = new Configuracion();

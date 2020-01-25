@@ -41,6 +41,12 @@
              <result type="json" name="success"></result>
         </action>
         
+        <!--  action para listar los jefes de cada area  -->
+        <action name="lst_jefes_area" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="listar_jefes_areas"> 
+            <result type="json">
+                <param name="root">lst_jefe_area</param>
+            </result>
+        </action>
         
     </package> 
     
