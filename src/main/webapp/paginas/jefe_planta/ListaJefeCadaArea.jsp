@@ -51,7 +51,6 @@
                         <button type="submit" class="btn btn-success" style="margin-bottom:40px;">
                             <i class="fa fa-power-off"></i> Iniciar </button>
                     </center>
-
                 </form>
             </div>
         </div>
@@ -150,6 +149,73 @@
             </div>
         </div>
     </div>
+
+<!--  modal para editar los jefes de area -->
+
+ <!-- dmodalUsuario Nueva Usuario -->
+    <div class="modal fade" id="nuevoProducto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><i class='glyphicon glyphicon-edit'></i> 
+                           <b><span id="span_nuevo">Nuevo</span><span id="span_actualizar">Actualizar</span> Jefe Area</b>
+                        </h4>
+                  </div>
+                  <div class="modal-body">
+                      <form class="form-horizontal" method="post" id="editar_usuario" name="editar_usuario">
+
+                          <div class="form-group">
+                              <label for="mod_estado" class="col-sm-3 control-label">NOMBRES</label>
+                              <div class="col-sm-8">
+                                 <input type="text" class="form-control" id="m_txt_nombres" name="txt_nombrepersona" placeholder="Nombre " required>
+                              </div>
+                          </div>    
+                          <div id="resultados_ajax2"></div>
+                          <div class="form-group">
+                              <label for="mod_codigo" class="col-sm-3 control-label">APELLIDOS</label>
+                              <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_apellidos" name="txt_nombrepersona" placeholder="Nombre " required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="descripcion" class="col-sm-3 control-label">Email</label>
+                              <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_email" name="txt_email" placeholder="Correo Electronico" required>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="descripcion" class="col-sm-3 control-label">Usuario</label>
+                              <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_usuario" name="txt_usuario" placeholder="usuario" required maxlength="20">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label for="descripcion" class="col-sm-3 control-label">ESTADO CUENTA</label>
+                              <div class="col-sm-8">
+                                  <select class="form-control" id="cbx_estado_cuenta" name="cbx_rol_name" required>
+                                    <option value=""> ======== Seleccione Rol ======== </option>
+                                    <option value=""> Activar </option>
+                                    <option value=""> Desactivar </option>
+                              </select>
+                              </div>
+                          </div>
+                          <div class="form-group" id="div_estado">
+                              <label for="mod_estado" class="col-sm-3 control-label">AREA PRODUCCION</label>
+                               <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_area_produccion" name="txt_password" placeholder="password" required maxlength="20">
+                              </div>
+                          </div>    
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary" id="crearusuario">Guardar Usuario</button>
+                                <button type="button" class="btn btn-primary" id="modificarusu">Actualizar Usuario</button>
+                            </div>
+                        </form>
+                </div>
+          </div>
+        </div>
 
 
 
