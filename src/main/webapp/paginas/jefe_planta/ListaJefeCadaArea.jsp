@@ -184,33 +184,58 @@
                                   <input type="text" class="form-control" id="m_txt_email" name="txt_email" placeholder="Correo Electronico" required>
                               </div>
                           </div>
+                           <div class="form-group">
+                              <label for="descripcion" class="col-sm-3 control-label">Direccion</label>
+                              <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_direccion" name="txt_email" placeholder="Correo Electronico" required>
+                              </div>
+                          </div>
+                            <div class="form-group">
+                              <label for="descripcion" class="col-sm-3 control-label">Telfono</label>
+                              <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_telefono" name="txt_email" placeholder="Correo Electronico" required>
+                              </div>
+                          </div>
                           <div class="form-group">
                               <label for="descripcion" class="col-sm-3 control-label">Usuario</label>
                               <div class="col-sm-8">
                                   <input type="text" class="form-control" id="m_txt_usuario" name="txt_usuario" placeholder="usuario" required maxlength="20">
                               </div>
                           </div>
+                          
+                           <div class="form-group">
+                              <label for="descripcion" class="col-sm-3 control-label">Contraseña</label>
+                              <div class="col-sm-8">
+                                  <input type="text" class="form-control" id="m_txt_contra" name="txt_usuario" placeholder="usuario" required maxlength="20">
+                              </div>
+                          </div>
+                          
                           <div class="form-group">
                               <label for="descripcion" class="col-sm-3 control-label">ESTADO CUENTA</label>
                               <div class="col-sm-8">
                                   <select class="form-control" id="cbx_estado_cuenta" name="cbx_rol_name" required>
                                     <option value=""> ======== Seleccione Rol ======== </option>
-                                    <option value=""> Activar </option>
-                                    <option value=""> Desactivar </option>
+                                    <option value="0"> Activar </option>
+                                    <option value="1"> Desactivar </option>
                               </select>
                               </div>
                           </div>
                           <div class="form-group" id="div_estado">
                               <label for="mod_estado" class="col-sm-3 control-label">AREA PRODUCCION</label>
                                <div class="col-sm-8">
-                                  <input type="text" class="form-control" id="m_txt_area_produccion" name="txt_password" placeholder="password" required maxlength="20">
-                              </div>
+                                 
+                              
+                                   <select class="form-control" id="m_txt_area_produccion" name="cbx_rol_name" required>
+                                    
+                                   </select>
+                               
+                               
+                               </div>
                           </div>    
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" id="crearusuario">Guardar Usuario</button>
-                                <button type="button" class="btn btn-primary" id="modificarusu">Actualizar Usuario</button>
+                                <button type="button" class="btn btn-primary" id="guardarjefe">Guardar Cambios</button>
                             </div>
                         </form>
                 </div>

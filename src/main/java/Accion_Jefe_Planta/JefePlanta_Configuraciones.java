@@ -28,7 +28,11 @@ public class JefePlanta_Configuraciones {
     List<jefe_area> lst_jefe_area= new LinkedList<jefe_area>();
     //::::::::::::: varibales por id :::::::::::::::::::
     int id_e;
-    jefe_area obj_jefe_area=new jefe_area();
+    jefe_area obj_jefe_area;
+    //:::::::::::: variables de jefe _planta ::::::::::::::
+    List<Area_produccion> lst_areas_produccion= new LinkedList<Area_produccion>();
+    
+    
     //:::::::::::. variables ::::::::::::::.
     double costo_malla_e;
     double kilo_por_caja_e; 
@@ -40,6 +44,22 @@ public class JefePlanta_Configuraciones {
     int pallet_por_contenedor_e;
     double precio_pallet_aire_e;
     double precio_pallet_mar_e ;
+    
+    // ::::::::... variablesde actualizacion
+    
+    String nombre_e;
+    String apellidos_e;
+    String email_e;
+    String direccion_e;
+    int estado_e;
+    String telefono_e;
+    String usuario_e;
+    String contrasenia_e;
+    int id_area_produccion_e;
+    int id_jefe_area_e;
+    int id_persona_e;
+    
+    
     
     public Configuracion getObj_configuracion() {
         return obj_configuracion;
@@ -141,7 +161,105 @@ public class JefePlanta_Configuraciones {
         this.obj_jefe_area = obj_jefe_area;
     }
 
-  
+  //:::::::::::::. lista de areas de produccion :::::::::::::::::::
+
+    public List<Area_produccion> getLst_areas_produccion() {
+        return lst_areas_produccion;
+    }
+
+    public void setLst_areas_produccion(List<Area_produccion> lst_areas_produccion) {
+        this.lst_areas_produccion = lst_areas_produccion;
+    }
+
+    public String getNombre_e() {
+        return nombre_e;
+    }
+
+    public void setNombre_e(String nombre_e) {
+        this.nombre_e = nombre_e;
+    }
+
+    public String getApellidos_e() {
+        return apellidos_e;
+    }
+
+    public void setApellidos_e(String apellidos_e) {
+        this.apellidos_e = apellidos_e;
+    }
+
+    public String getEmail_e() {
+        return email_e;
+    }
+
+    public void setEmail_e(String email_e) {
+        this.email_e = email_e;
+    }
+
+    public String getDireccion_e() {
+        return direccion_e;
+    }
+
+    public void setDireccion_e(String direccion_e) {
+        this.direccion_e = direccion_e;
+    }
+
+    public int getEstado_e() {
+        return estado_e;
+    }
+
+    public void setEstado_e(int estado_e) {
+        this.estado_e = estado_e;
+    }
+
+    public String getTelefono_e() {
+        return telefono_e;
+    }
+
+    public void setTelefono_e(String telefono_e) {
+        this.telefono_e = telefono_e;
+    }
+
+    public String getUsuario_e() {
+        return usuario_e;
+    }
+
+    public void setUsuario_e(String usuario_e) {
+        this.usuario_e = usuario_e;
+    }
+
+    public String getContrasenia_e() {
+        return contrasenia_e;
+    }
+
+    public void setContrasenia_e(String contrasenia_e) {
+        this.contrasenia_e = contrasenia_e;
+    }
+
+    public int getId_area_produccion_e() {
+        return id_area_produccion_e;
+    }
+
+    public void setId_area_produccion_e(int id_area_produccion_e) {
+        this.id_area_produccion_e = id_area_produccion_e;
+    }
+
+    public int getId_jefe_area_e() {
+        return id_jefe_area_e;
+    }
+
+    public void setId_jefe_area_e(int id_jefe_area_e) {
+        this.id_jefe_area_e = id_jefe_area_e;
+    }
+
+    public int getId_persona_e() {
+        return id_persona_e;
+    }
+
+    public void setId_persona_e(int id_persona_e) {
+        this.id_persona_e = id_persona_e;
+    }
+    
+    
     
     
     
@@ -150,28 +268,31 @@ public class JefePlanta_Configuraciones {
     public String listar_jefes_areas(){
        try{
            lst_jefe_area.clear();
-           String sql_listar = "select id_jefe_area,per.id_persona,are.id_area_produccion,nombre,apellidos,email,usuario,nombre_area\n"
+           String sql_listar = "select id_jefe_area,per.id_persona,are.id_area_produccion,nombre,apellidos,email,usuario,contrasenia,nombre_area,direccion,telefono\n"
                    + " from jefe_de_area jef inner join persona per on jef.id_persona=per.id_persona inner join usuario us on\n"
                    + " per.id_persona = us.id_persona inner join area_produccion are on\n"
                    + "jef.id_area_produccion = are.id_area_produccion group by id_jefe_area;";
            ResultSet resultado = BaseConexion.getStatement().executeQuery(sql_listar);
            while (resultado.next()) {
-               jefe_area obj_jefe_area = new jefe_area();
-               obj_jefe_area.setId_jefe_area(resultado.getInt(1));
-               obj_jefe_area.setId_persona(resultado.getInt(2));
+               jefe_area obj_jefe_areA = new jefe_area();
+               obj_jefe_areA.setId_jefe_area(resultado.getInt(1));
+               obj_jefe_areA.setId_persona(resultado.getInt(2));
                Area_produccion obj_area = new Area_produccion();
                obj_area.setId_area_produccion(resultado.getInt(3));
-               obj_jefe_area.setNombre(resultado.getString(4));
-               obj_jefe_area.setApellidos(resultado.getString(5));
-               obj_jefe_area.setEmail(resultado.getString(6));
+               obj_jefe_areA.setNombre(resultado.getString(4));
+               obj_jefe_areA.setApellidos(resultado.getString(5));
+               obj_jefe_areA.setEmail(resultado.getString(6));
                // campos de usuario
                Usuario obj_user = new Usuario();
                obj_user.setUser(resultado.getString(7));
-               obj_jefe_area.setUsuario(obj_user);
-               obj_area.setNombre_area_produccion(resultado.getString(8));
+               obj_user.setPassword(resultado.getString(8));
+               obj_jefe_areA.setUsuario(obj_user);
+               obj_area.setNombre_area_produccion(resultado.getString(9));
+               obj_jefe_areA.setDireccion(resultado.getString(10));
+               obj_jefe_areA.setTelefono(resultado.getString(11));
                // enlazar el jefe de area con el area de produccion
-               obj_jefe_area.setObj_area_produccion(obj_area);
-               lst_jefe_area.add(obj_jefe_area);
+               obj_jefe_areA.setObj_area_produccion(obj_area);
+               lst_jefe_area.add(obj_jefe_areA);
            }
            return "success";
        }
@@ -181,7 +302,7 @@ public class JefePlanta_Configuraciones {
        }
         
     }
-    // ::::::::::::::::::::::::. editar por id :::::::::::::::::::::::::::::::::::::::::::
+    // ::::::::::::::::::::::::. actualizar por id :::::::::::::::::::::::::::::::::::::::::::
     
     public String jefe_area_por_id(){
        try{
@@ -189,9 +310,11 @@ public class JefePlanta_Configuraciones {
                    + " from jefe_de_area jef inner join persona per on jef.id_persona=per.id_persona inner join usuario us on\n"
                    + " per.id_persona = us.id_persona inner join area_produccion are on\n"
                    + "jef.id_area_produccion = are.id_area_produccion  where id_jefe_area = " +getId_e();
+              
            ResultSet resultado = BaseConexion.getStatement().executeQuery(sql_listar);
            while (resultado.next()) {
-              
+               obj_jefe_area=new jefe_area();
+              //JOptionPane.showMessageDialog(null,resultado.getString(7));
                obj_jefe_area.setId_jefe_area(resultado.getInt(1));
                obj_jefe_area.setId_persona(resultado.getInt(2));
                Area_produccion obj_area = new Area_produccion();
@@ -261,6 +384,60 @@ public class JefePlanta_Configuraciones {
         }
     }
 ;
+    
+    // ::::::::::::::::: traer areas de produccion :::::::::::::::::
+    
+    public String traer_area_produccion() {
+        try {
+            String sql = "select * from area_produccion";
+            ResultSet call = BaseConexion.getStatement().executeQuery(sql);
+            while(call.next()){
+              Area_produccion obj_area_produc= new Area_produccion();
+              obj_area_produc.setId_area_produccion(call.getInt(1));
+              obj_area_produc.setNombre_area_produccion(call.getString(2));
+              obj_area_produc.setOrden(call.getInt(3));
+              obj_area_produc.setEstado(call.getInt(4));
+              lst_areas_produccion.add(obj_area_produc);
+            };
+            return "success";
+        } catch (SQLException ex) {
+
+            return "error";
+        }
+
+    }
+    /*,
+
+in id_persona_e int, in id_jefe_area_e int
+    */
+    // modificar jefes de areas 
+       public String modificar_jefes_are() {
+        try {
+            String sql= "{call sistema_flp.sp_actualizar_jefes_area(?,?,?,?,?,?,?,?,?,?,?)}";
+            CallableStatement call= BaseConexion.getprepareCall(sql);
+            call.setString(1,getNombre_e());
+            call.setString(2,getApellidos_e());
+            call.setString(3,getEmail_e());
+            call.setString(4,getDireccion_e());
+            call.setInt(5,getEstado_e());
+            call.setString(6,getTelefono_e());
+            call.setString(7,getUsuario_e());
+            call.setString(8,getContrasenia_e());
+            call.setInt(9,getId_area_produccion_e());
+            call.setInt(10,getId_persona_e());
+            call.setInt(11,getId_jefe_area_e());
+            call.executeUpdate();
+            JOptionPane.showMessageDialog(null,"se envio con existo");
+            return "success";
+        } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null,"hubo un error "+ ex);
+           return "error";
+        }
+    }
+    
+    
+;
+    
     
     
     

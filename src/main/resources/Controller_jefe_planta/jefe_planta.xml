@@ -50,9 +50,21 @@
         <!-- traer datos por id --> 
         <action name="traer_datos_por_id" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="jefe_area_por_id">
             <result type="json">
-                <param name="root"></param>
+                <param name="root">obj_jefe_area</param>
             </result>
         </action>
+        <!-- traer areas de produccion -->
+        <action name="traer_datos_area_produccion" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="traer_area_produccion">
+              <result type="json">
+                <param name="root">lst_areas_produccion</param>
+            </result>
+        </action>
+        
+        <!-- modificar jefes de area -->
+        <action name="modificar_jefes_area" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="modificar_jefes_are">
+            <result type="json" name="success"></result>
+        </action>
+        
     </package> 
     
 </struts>
