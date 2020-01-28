@@ -57,7 +57,12 @@ $(document).ready(function(){
          id_jefe_area_e :id_jefe_area_e_x},
          url:'modificar_jefes_area',
          success : function(response){
-             
+             alertify.success('se guardaron los cambios exitosamente');
+             $('#nuevoProducto').modal('hide');
+             // limpiar las cacjas y refrescar el listado 
+             lista_jefes=[];
+             index_lista=0;
+             listar_tmp();
          } 
        });
     });

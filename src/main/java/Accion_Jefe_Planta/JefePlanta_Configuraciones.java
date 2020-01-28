@@ -427,10 +427,10 @@ in id_persona_e int, in id_jefe_area_e int
             call.setInt(10,getId_persona_e());
             call.setInt(11,getId_jefe_area_e());
             call.executeUpdate();
-            JOptionPane.showMessageDialog(null,"se envio con existo");
+            
             return "success";
         } catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"hubo un error "+ ex);
+           
            return "error";
         }
     }
