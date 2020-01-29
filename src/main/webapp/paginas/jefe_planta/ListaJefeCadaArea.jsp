@@ -85,36 +85,7 @@
                                 <div class="">
                                       
                                     <h2><a href="#"> Lista de Jefes de Area </a><span></span></h2><br>
-                                    <div class="row">
                                       
-                                        <div class="col-sm-2" id="div_fechai">
-                                            <input type="date" class="form-control" id="txt_fechai">
-                                            <small style="align-text:center;"> Fecha Inicial</small>
-                                        </div>
-                                        <div class="col-sm-2" id="div_fechaf">
-                                            <input type="date" class="form-control" id="txt_fechaf">
-                                            <small style="align-text:center;"> Fecha Final</small>
-                                        </div> 
-                                        <div class="col-sm-1">
-                                            <button type="button" class="btn btn-primary" id="btn_buscar">
-                                                <i class="fa  fa-search" ></i> Buscar
-                                            </button>
-                                        </div> 
-                                         <div class="col-sm-3">
-                                            <div class="form-group">
-                                                <select class="form-control" id="cbx_vende">
-                                                    <option value="0"> Todos los Productos </option>                                                      
-                                                </select>
-                                             </div>
-                                        </div>
-                                         <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <select class="form-control" id="cbx_vende">
-                                                    <option value="0"> Todos los Destinatarios </option>                                                      
-                                                </select>
-                                             </div>
-                                        </div> 
-                                    </div>  
                                     <hr>
                                     <div class="p_text">
                                          <table class="table table-hover text-center">

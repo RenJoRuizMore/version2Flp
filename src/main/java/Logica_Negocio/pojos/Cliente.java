@@ -18,7 +18,7 @@ public class Cliente extends Persona{
     private String codigo_postal;
     private int id_tarjeta;
     private Tarjeta obj_tarjeta;
-
+    private int cantidad_pedidos;
     public int getId_cliente() {
         return id_cliente;
     }
@@ -81,6 +81,14 @@ public class Cliente extends Persona{
 
     public void setObj_tarjeta(Tarjeta obj_tarjeta) {
         this.obj_tarjeta = obj_tarjeta;
+    }
+
+    public int getCantidad_pedidos() {
+        return cantidad_pedidos;
+    }
+
+    public void setCantidad_pedidos(int cantidad_pedidos) {
+        this.cantidad_pedidos = cantidad_pedidos;
     }
     
     

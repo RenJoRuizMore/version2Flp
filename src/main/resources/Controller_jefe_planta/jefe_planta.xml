@@ -6,7 +6,7 @@
       <!-- Add your configuration elements here -->
       <package name="package_jefe_planta" extends="struts-default">
         <action name="ir_actualizar_clientes" class="Acciongenerico.AccionLoguear" method="ruteador">
-            <result name="success">/paginas/jefe_planta/ActualizarDatosCliente.jsp </result>
+            <result name="success">/paginas/jefe_planta/ListaClientes.jsp </result>
         </action>
         <action name="ir_lista_jefe_areas" class="Acciongenerico.AccionLoguear" method="ruteador">
             <result name="success">/paginas/jefe_planta/ListaJefeCadaArea.jsp </result>
@@ -65,6 +65,35 @@
             <result type="json" name="success"></result>
         </action>
         
+        
+        <!-- eliminar  jefes de area -->
+        <action name="eliminar_por_id" class="Accion_Jefe_Planta.JefePlanta_Configuraciones" method="eliminar_jefes_are">
+            <result type="json" name="success"></result>
+        </action>
+        
     </package> 
+    
+    
+    <package name="json_jefe_lista_clientes" extends="json-default">
+         <action name="lst_clientes" class="Accion_Jefe_Planta.jefe_lista_clientes" method="listar_clientes">
+            <result type="json">
+                <param name="root">lst_clientes</param>
+            </result>
+        </action>
+        
+        <action name="ir_editar_cliente" class="Accion_Jefe_Planta.jefe_lista_clientes" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ActualizarDatosCliente.jsp </result>
+        </action>
+        
+         <action name="carga_datos" class="Accion_Jefe_Planta.jefe_lista_clientes" method="carga_datos_modificar">
+            <result type="json">
+                <param name="root">lst_clientes</param>
+            </result>
+        </action>
+        <action name="guardar_datos_cliente" class="Accion_Jefe_Planta.jefe_lista_clientes" method="guardar_cliente">
+            <result type="json" name="success"> </result>
+        </action>
+        
+    </package>
     
 </struts>

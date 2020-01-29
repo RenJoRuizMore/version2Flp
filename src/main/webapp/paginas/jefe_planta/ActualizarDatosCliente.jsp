@@ -26,7 +26,7 @@
     }
 </style>
 </head>
-<body onload="initialize()" class="inner_page innerpage">
+<body  class="inner_page innerpage">
     <div class="bg_parallax" id="inb">
         <!--navigation swipe-->
         <div class="menu-btn">&#9776;</div>
@@ -89,7 +89,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Nombre ">
+                                    <input type="text"  class="form-control" id="txt_nombre_representante_c"  placeholder="Ingresar Nombre ">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*nombre de empleado</small>
@@ -100,7 +100,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Apellidos">
+                                    <input type="text"  class="form-control" id="txt_razon_scocial_c"  placeholder="Ingresar Apellidos">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -111,7 +111,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="email"  class="form-control" id="txt_produc"  placeholder="Ingresar Apellidos">
+                                    <input type="email"  class="form-control" id="txt_email_c"  placeholder="Ingresar Apellidos">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -122,7 +122,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="text"  class="form-control" id="txt_pais_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -133,7 +133,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="text"  class="form-control" id="txt_region_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -144,7 +144,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="text"  class="form-control" id="txt_ciudad_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -155,7 +155,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="text"  class="form-control" id="txt_direccion_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -166,7 +166,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="text"  class="form-control" id="txt_codigo_postal_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -177,7 +177,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="text"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="text"  class="form-control" id="txt_telefonos_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -188,7 +188,7 @@
                                     <span class="input-group-addon">
                                         <span class="fa fa-money"></span>
                                     </span>
-                                    <input type="password"  class="form-control" id="txt_produc"  placeholder="Ingresar Calve">
+                                    <input type="password"  class="form-control" id="txt_clave_c"  placeholder="Ingresar Calve">
 
                                 </div>                                        
                                 <small id="emailHelp"  class="form-text text-muted">*apellidos de empleado</small>
@@ -208,7 +208,7 @@
                             <hr>
                              <div class="form-group" id="div_fechaf">
                                
-                                 <button class="btn btn-primary"> GUARDAR CAMBIOS</button>
+                                 <button class="btn btn-primary" id="btn_guardar_clientes"> GUARDAR CAMBIOS</button>
                                            
                              </div>
                             
@@ -229,7 +229,7 @@
 #################################
 -->
 <%@include file="../source_js/enlaces_js.jsp" %>
-
+<script type="text/javascript" src="./funciones_js/jefe_planta/js_actualizar_clientes.js"></script>
 
 </body>
 </html>

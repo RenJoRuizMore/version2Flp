@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.CallableStatement;
 import Logica_Negocio.pojos.jefe_area;
+import java.sql.PreparedStatement;
 import java.util.List;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -271,7 +272,7 @@ public class JefePlanta_Configuraciones {
            String sql_listar = "select id_jefe_area,per.id_persona,are.id_area_produccion,nombre,apellidos,email,usuario,contrasenia,nombre_area,direccion,telefono\n"
                    + " from jefe_de_area jef inner join persona per on jef.id_persona=per.id_persona inner join usuario us on\n"
                    + " per.id_persona = us.id_persona inner join area_produccion are on\n"
-                   + "jef.id_area_produccion = are.id_area_produccion group by id_jefe_area;";
+                   + "jef.id_area_produccion = are.id_area_produccion where jef.estado=1 group by id_jefe_area;";
            ResultSet resultado = BaseConexion.getStatement().executeQuery(sql_listar);
            while (resultado.next()) {
                jefe_area obj_jefe_areA = new jefe_area();
@@ -434,6 +435,23 @@ in id_persona_e int, in id_jefe_area_e int
            return "error";
         }
     }
+       
+   // eliminar  jefes de areas 
+       public String  eliminar_jefes_are() {
+        try {
+            
+            String sql= "update jefe_de_area set estado=0 where id_jefe_area= "+ getId_e() ;
+            PreparedStatement call= BaseConexion.getPreparedStatement(sql);
+            
+            call.executeUpdate();
+            
+            return "success";
+        } catch (SQLException ex) {
+           
+           return "error";
+        }
+    }    
+       
     
     
 ;

@@ -26,7 +26,7 @@
     }
 </style>
 </head>
-<body onload="initialize()" class="inner_page innerpage">
+<body  class="inner_page innerpage">
     <div class="bg_parallax" id="inb">
         <!--navigation swipe-->
         <div class="menu-btn">&#9776;</div>
@@ -130,33 +130,8 @@
                                                 <th class="text-center">Opciones</th>     
                                               </tr>
                                             </thead>                                            
-                                             <tbody id="contenido_factura">
-                                                 <tr>
-                                                     <td>1</td>
-                                                     <td>GERT ATOM</td>
-                                                     <td> INGENIOSSOFT</td>
-                                                     <td> RENEJOSE@HOMTIAL.COM</td>
-                                                     <td> 456543636</td>
-                                                     <td> si</td>
-                                                     
-                                                     <td>
-                                                         <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                 Ver Detalle de Cliente </a></p>
-                                                     </td>
-                                                 </tr>
-                                                    <tr>
-                                                     <td>1</td>
-                                                     <td>GERT ATOM</td>
-                                                     <td> INGENIOSSOFT</td>
-                                                     <td> RENEJOSE@HOMTIAL.COM</td>
-                                                     <td> 456543636</td>
-                                                     <td> si</td>
-                                                     
-                                                     <td>
-                                                         <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                 Ver Detalle de Cliente </a></p>
-                                                     </td>
-                                                 </tr>
+                                            <tbody id="contenido_clientes">
+                                                
                                             </tbody>
                                           </table>
                                     </div>
@@ -184,47 +159,7 @@
 #################################
 -->
 <%@include file="../source_js/enlaces_js.jsp" %>
-<!--Parallax bg-->
-<script type="text/javascript">
-"use strict";
-$('#inb').parallax({
-'elements': [
-{
-'selector': '#inb',
-'properties': {
-'x': {
-'background-position-x': {
-'initial': 0,
-'multiplier': 0.03,
-'invert': true
-}
-},
-'y': {
-'background-position-y': {
-'initial': 30,
-'multiplier': 0.03,
-'invert': true
-}
-}
-}
-}
-]
-});
-</script>
-<!--Flickr widget-->
-<script type="text/javascript">
-"use strict";
-$('#basicuse').jflickrfeed({
-limit: 6,
-qstrings: {
-id: '52617155@N08'
-},
-itemTemplate: 
-'<li>' +
-'<a href="{{image_b}}"><img src="{{image_m}}" alt="{{title}}" /></a>' +
-'</li>'
-});
-</script>
+<script type="text/javascript" src="./funciones_js/jefe_planta/js_jefe_lista_clientes.js"></script>
 </body>
 </html>
 

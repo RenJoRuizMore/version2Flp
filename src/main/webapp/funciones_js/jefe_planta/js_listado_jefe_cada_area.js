@@ -124,6 +124,7 @@ $(document).ready(function(){
                 //venta_producto();
                 // click a un determinado boton  
                 click_editar();
+                eleiminar();
             }
         });
     }
@@ -131,7 +132,6 @@ $(document).ready(function(){
    // listado de los jefes de area
     function agregar_filas_tmp_detfactura(cantidad_datos, respondar) {
         $('.fila_pro_tmpdetfac').remove();//clase CSS q remove todas las acitvite
-       
         for (var k = 0; k < cantidad_datos; k++) {
             // input of data 
             var Nombres = respondar[k].nombre;
@@ -153,14 +153,49 @@ $(document).ready(function(){
                     '<td>' + Cuenta_Activa + '</td>' +
                     '<td>' + Area_Producion + '</td>' +
                     '<td> <button class="btn btn-primary lst_edit" data-toggle="modal" data-target="#nuevoProducto" id= ' + k + ' > <i class="fa  fa-edit">\n\
-                     </i></button>  '  +
-                     '<button class="btn btn-primary delete_edit" data-toggle="modal" data-target="#nuevoProducto" id= ' + k + ' > <i class="fa  fa-trash-o">\n\
+                     </i></button>  ' +
+                     '<button class="btn btn-primary delete_edit"  id= ' + k + ' > <i class="fa  fa-trash-o">\n\
                      </i></button>' +
                      '</td>'+ 
                     '</tr>'
                     );
         }
     }  
+    
+    
+    function eleiminar() {
+        $('.delete_edit').click(function () {
+            var id_input_x = $(this).attr('id');
+            // index_lista = id_input;
+            var id_input = lista_jefes[id_input_x].id_jefe_area;
+
+            alertify.confirm("Factura Compra", "Desea Eliminar el usuario <b> " + lista_jefes[id_input_x].nombre + " " + lista_jefes[id_input_x].apellidos + " </b> de la lista",
+                    function () {
+                        $.ajax({
+                            type: "GET",
+                            data: {id_e: id_input},
+                            url: 'eliminar_por_id',
+                            success: function (response) {
+                                //.success('se guardaron los cambios exitosamente');
+                                lista_jefes = [];
+                                index_lista = 0;
+                                listar_tmp();
+                            },
+                            error: function (response) {
+                                alert("hubo un error del servidor");
+                            }
+                        });
+                    }
+            ,
+                    function () {//cancelo
+                    });
+
+        });
+    }
+    
+   
+    
+    
     
     
    
