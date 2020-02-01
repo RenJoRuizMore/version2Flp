@@ -36,7 +36,77 @@ public class Pedido {
     private int estado_pedido;
     private Cliente obj_cliente;
     private Producto obj_producto;
+    // campos extras para manejo de pojhos 
+    private String nombre_producto;
+    private int dias_restantes;
+    private String pregunta;
+    private int id_pais;
+    private int id_cliente;
 
+    private int id_producto;
+    
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    public int getId_producto() {
+        return id_producto;
+    }
+
+    public void setId_producto(int id_producto) {
+        this.id_producto = id_producto;
+    }
+    
+    
+    
+    
+    
+    public int getId_pais() {
+        return id_pais;
+    }
+
+    public void setId_pais(int id_pais) {
+        this.id_pais = id_pais;
+    }
+
+    
+    
+    
+    public String getPregunta() {
+        return pregunta;
+    }
+
+    public void setPregunta(String pregunta) {
+        this.pregunta = pregunta;
+    }
+    
+    
+    
+    public int getDias_restantes() {
+        return dias_restantes;
+    }
+
+    public void setDias_restantes(int dias_restantes) {
+        this.dias_restantes = dias_restantes;
+    }
+    
+    
+    
+    public String getNombre_producto() {
+        return nombre_producto;
+    }
+
+    public void setNombre_producto(String nombre_producto) {
+        this.nombre_producto = nombre_producto;
+    }
+    
+
+    
+    
     public int getId_pedido() {
         return id_pedido;
     }

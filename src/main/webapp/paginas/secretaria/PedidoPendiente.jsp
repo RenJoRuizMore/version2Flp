@@ -25,7 +25,7 @@
     }
 </style>
 </head>
-<body onload="initialize()" class="inner_page innerpage">
+<body class="inner_page innerpage">
     <div class="bg_parallax" id="inb">
         <!--navigation swipe-->
         <div class="menu-btn">&#9776;</div>
@@ -219,7 +219,8 @@
 #################################
 -->
 <%@include file="../source_js/enlaces_js.jsp" %>
-
+<script src="./funciones_js/secretaria/js_secretaria_pedidos_pendientes.js" type="text/javascript">
+</script>
 
 </body>
 </html>
