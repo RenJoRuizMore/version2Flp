@@ -134,64 +134,8 @@
                                                 <th class="text-center">Opciones</th>
                                               </tr>
                                             </thead>                                            
-                                             <tbody id="contenido_factura">
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>360</td>
-                                                    <td> 10 x 15 ARCHIVO/3032 DG</td>
-                                                    <td> 12/12/2020</td>
-                                                    <td> 10</td>
-                                                    <td> Rne Jose</td>											 
-                                                    <td> NO</td>
-                                                    <td>
-                                                    <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                Enviar area Producc</a></p>
-                                                   <p> <a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-trash-o"></i>
-                                                    Ver detalle de pedido</a></p>
-                                                    <p>
-                                                    <a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-leaf"></i>
-                                                        Ver estado de pedido</a>
-                                                    </p>
-                                                    </td>
-                                                </tr>
-                                                   <tr>
-                                                    <td>1</td>
-                                                    <td>360</td>
-                                                    <td> 10 x 15 ARCHIVO/3032 DG</td>
-                                                    <td> 12/12/2020</td>
-                                                    <td> 10</td>
-                                                    <td> Rne Jose</td>											 
-                                                    <td> NO</td>
-                                                    <td>
-                                                        <p><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                Ver Temperatura </a></p>
-                                                   <p> <a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-trash-o"></i>
-                                                    Ver detalle de pedido</a></p>
-                                                    <p>
-                                                    <a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-leaf"></i>
-                                                        Ver estado de pedido</a>
-                                                    </p>
-                                                    </td>
-                                                </tr>
-                                                   <tr>
-                                                    <td>1</td>
-                                                    <td>360</td>
-                                                    <td> 10 x 15 ARCHIVO/3032 DG</td>
-                                                    <td> 12/12/2020</td>
-                                                    <td> 10</td>
-                                                    <td> Rne Jose</td>											 
-                                                    <td> NO</td>
-                                                    <td>
-                                                        <p><a href="#!" class="btn btn-primary btn-raised btn-xs"><i class="fa fa-search"></i>
-                                                                Enviar area Producc</a></p>
-                                                    <p> <a href="#!" class="btn btn-success btn-raised btn-xs"><i class="fa fa-trash-o"></i>
-                                                    Ver detalle de pedido</a></p>
-                                                    <p>
-                                                    <a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="fa fa-leaf"></i>
-                                                        Ver estado de pedido</a>
-                                                    </p>
-                                                    </td>
-                                                </tr>
+                                             <tbody id="contenido_pedidos">
+                                                
                                             </tbody>
                                           </table>
                                     </div>

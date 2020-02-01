@@ -19,11 +19,34 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class ListaPedidosPendientes {
     List<Pedido> lst_pedidos_pendientes= new LinkedList<Pedido>();
+    int id_pedido_d;
+
+    public int getId_pedido_d() {
+        return id_pedido_d;
+    }
+
+    public void setId_pedido_d(int id_pedido_d) {
+        this.id_pedido_d = id_pedido_d;
+    }
+    
+    
+    public List<Pedido> getLst_pedidos_pendientes() {
+        return lst_pedidos_pendientes;
+    }
+
+    public void setLst_pedidos_pendientes(List<Pedido> lst_pedidos_pendientes) {
+        this.lst_pedidos_pendientes = lst_pedidos_pendientes;
+    }
+    
+    
+    
     public String lst_pedi_pendientes(){
+        lst_pedidos_pendientes.clear();
         String sql= "{call sp_listado_pedido_poraprobar()}";
         CallableStatement resultado=BaseConexion.getprepareCall(sql);
+        
         try{
-            ResultSet result= resultado.getResultSet();
+            ResultSet result = resultado.executeQuery();
            while(result.next()){
               // crear un objeto Pedido
               Pedido obj_pedido= new Pedido();
@@ -55,5 +78,26 @@ public class ListaPedidosPendientes {
         }
         
     }
+    
+    // esend to area productions
+    
+     public String actualizar_pedidos(){
+        
+        String sql= "{call enviar_area_produccion(?)}";
+        CallableStatement resultado=BaseConexion.getprepareCall(sql);
+        
+        try{
+            resultado.setInt(1,getId_pedido_d());
+            resultado.executeUpdate();
+           
+           return "success";
+        }
+        catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+            return "error";
+        }
+        
+    }
+    
     
 }

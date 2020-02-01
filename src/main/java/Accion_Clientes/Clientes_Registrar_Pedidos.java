@@ -378,7 +378,7 @@ public class Clientes_Registrar_Pedidos {
           FileInputStream in;
           try {
               in = new FileInputStream(getFichero_enviado());
-               JOptionPane.showMessageDialog(null,"tamaño es "+ getFichero_enviado().length());
+               
          //result.setBinaryStream(15, in,(int) getFichero_enviado().length());
          result.setBlob(15, in);
           } catch (FileNotFoundException ex) {
