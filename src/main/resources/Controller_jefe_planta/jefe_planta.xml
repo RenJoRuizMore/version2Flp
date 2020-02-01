@@ -94,6 +94,16 @@
             <result type="json" name="success"> </result>
         </action>
         
+        <action name="ir_listado_clientes" class="Accion_Jefe_Planta.jefe_lista_clientes" method="ruteador">
+            <result name="success">/paginas/jefe_planta/ListaClientes.jsp </result>
+        </action>
+        
+         <!-- eliminar  jefes de area -->
+        <action name="eliminar_por_id_clientes" class="Accion_Jefe_Planta.jefe_lista_clientes" method="eliminar_jclientes">
+            <result type="json" name="success"></result>
+        </action>
+        
+        
     </package>
     
 </struts>

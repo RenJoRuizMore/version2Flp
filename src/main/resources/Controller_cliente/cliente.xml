@@ -1,9 +1,7 @@
 <!DOCTYPE struts PUBLIC
 "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 "http://struts.apache.org/dtds/struts-2.0.dtd">
-
 <!-- Author: Rene Jose -->
- 
 <struts>
     <!-- Add your configuration elements here -->
       <package name="package_cliente" extends="struts-default">
@@ -20,18 +18,36 @@
     <!--  package de json -->
     <package name="default_jsonnn" extends="json-default">
          <!-- ingrsar nuevo cliente -->
-      <action name="ir_registrar_pedidosw" class="Acciongenerico.AccionLoguear" method="ruteador">
+        <action name="ir_registrar_pedidosw" class="Acciongenerico.AccionLoguear" method="ruteador">
             <result name="success">/paginas/cliente/RegistroNuevoPedido.jsp </result>
         </action>
-        
         <!-- registar pedido  -->
-      <action name="llenar_combo_productoss" class="Accion_Clientes.Clientes_Registrar_Pedidos" method="llenar_combo_productos">
-             <result type="json">
-                <param name="root">lst_productos</param>
-            </result>
-            
-      </action>  
+        <action name="llenar_combo_productoss" class="Accion_Clientes.Clientes_Registrar_Pedidos" method="llenar_combo_productos">
+               <result type="json">
+                  <param name="root">lst_productos</param>
+              </result>
+        </action>  
         <!-- fin de registrar pedido -->
+      
+        <!-- llenar comobo de paises -->
+        <action name="traer_datos_paises" class="Accion_Clientes.Clientes_Registrar_Pedidos" method="llenar_combo_paises">
+               <result type="json">
+                  <param name="root">lst_paises</param>
+              </result>
+        </action>  
+        <!-- test -->
+          <action name="test_envio" class="Accion_Clientes.Clientes_Registrar_Pedidos" method="registrar_pedido">
+               <result type="json" name="success">
+              </result>
+        </action>  
+        <!-- traer datos de objeto -->
+        <action name="usuario_load" class="Accion_Clientes.Clientes_Registrar_Pedidos" method="traer_is_cliente">
+               <result type="json">
+                  <param name="root">id_user_cliente_e</param>
+              </result>
+        </action>
+        
+        
     </package>
     
 </struts>

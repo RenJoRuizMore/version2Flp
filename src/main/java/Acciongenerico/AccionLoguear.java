@@ -11,16 +11,29 @@ import conexion.BaseConexion;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.SessionAware;
 /**
  *
  * @author Rene Jose
  */
-public class AccionLoguear extends ActionSupport{
-    
-    public static Usuario obj_user=new Usuario();
+public class AccionLoguear extends ActionSupport implements SessionAware{
+    SessionMap<String,String> sessionmap;  
+    public  Usuario obj_user=new Usuario();
     private String txt_user;
     private String txt_contrasenia;
+    private static int id_usuario;
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+    
     
     
     public String getTxt_user() {
@@ -53,6 +66,9 @@ public class AccionLoguear extends ActionSupport{
         String valor=validacionloguear(getTxt_user(),getTxt_contrasenia());
         
         if (valor.equalsIgnoreCase("exitoso")) {
+            sessionmap.put("id_usuario",String.valueOf(obj_user.getId_usuario()));
+            sessionmap.put("nombre_ususrio",String.valueOf(obj_user.getNombre()));
+            sessionmap.put("tipo_usuario",String.valueOf(obj_user.getDescripcion_tipousuario()));
             switch(obj_user.getId_tipousuario()){
                 // administrador
                  case 1:
@@ -68,6 +84,7 @@ public class AccionLoguear extends ActionSupport{
                     return "noencontro";  
             }
         }
+        sessionmap.invalidate();
         return "error";
     
     }
@@ -88,6 +105,7 @@ public class AccionLoguear extends ActionSupport{
                   obj_user.setId_tipousuario(resultado.getInt(2));
                   obj_user.setNombre(resultado.getString(3));
                   obj_user.setDescripcion_tipousuario(resultado.getString(4));
+                  setId_usuario(resultado.getInt(1));
             }
            resultado.close();
         }
@@ -99,6 +117,12 @@ public class AccionLoguear extends ActionSupport{
     
     public String ruteador(){
         return "success";
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        this.sessionmap=(SessionMap)map;
+          
     }
     
     

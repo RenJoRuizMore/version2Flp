@@ -267,6 +267,7 @@ public class JefePlanta_Configuraciones {
     
     // :::::::::::::::::::::::::. lista para jefe planta :::::::::::::::::::::::::::::::::::::::
     public String listar_jefes_areas(){
+        //Acciongenerico.AccionLoguear.obj_user.getId_tipousuario();
        try{
            lst_jefe_area.clear();
            String sql_listar = "select id_jefe_area,per.id_persona,are.id_area_produccion,nombre,apellidos,email,usuario,contrasenia,nombre_area,direccion,telefono\n"

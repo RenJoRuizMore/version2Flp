@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 $(document).ready(function(){
     inicio();
    var lista_jefes=[];
@@ -25,11 +24,10 @@ $(document).ready(function(){
                 //venta_producto();
                 // click a un determinado boton  
                 click_editar();
-                //eleiminar();
+                eleiminar();
             }
         });
     }
-   
    // listado de los jefes de area
     function agregar_filas_tmp_detfactura(cantidad_datos, respondar) {
         $('.fila_pro_tmpdetfac').remove();//clase CSS q remove todas las acitvite
@@ -61,20 +59,6 @@ $(document).ready(function(){
             var id_input = $(this).attr('id');
             index_lista = id_input;
             var id_clientes = lista_jefes[id_input].id_cliente;
-            //var id_e= lista_jefes[id_input].
-            /*
-             * $('#m_txt_nombres').val(lista_jefes[id_input].nombre);
-            $('#m_txt_apellidos').val(lista_jefes[id_input].apellidos);
-            $('#m_txt_email').val(lista_jefes[id_input].email);
-            $('#m_txt_usuario').val(lista_jefes[id_input].usuario.user);
-            $('#m_txt_direccion').val(lista_jefes[id_input].direccion);
-            $('#m_txt_telefono').val(lista_jefes[id_input].telefono);
-            // Password m_txt_telefono
-            $('#m_txt_contra').val(lista_jefes[id_input].usuario.password);
-            $("#cbx_estado_cuenta option[value='" + lista_jefes[id_input].estado + "']").attr("selected", true);
-            // id_area_produccion
-            $("#m_txt_area_produccion option[value='" + lista_jefes[id_input].obj_area_produccion.id_area_produccion + "']").attr("selected", true);
-            */
               $.ajax({
                 type: "POST",
                 data: {id_clientes_e:id_clientes},
@@ -82,17 +66,45 @@ $(document).ready(function(){
                 success: function (response) {
                    window.location="ir_editar_cliente";
                    // console.log(response);
-                   $('#txt_nombre_representante_c').val("renejose");
-                   //alert();
+                   
                 }
             });
         });
-    }  
+    }
+    
+    
+        function eleiminar() {
+        $('.delete_edit').click(function () {
+            var id_input_x = $(this).attr('id');
+            // index_lista = id_input;
+            var id_input = lista_jefes[id_input_x].id_cliente;
+            alertify.confirm("Factura Compra", "Desea Eliminar el usuario <b> " + lista_jefes[id_input_x].nombre +  " </b> de la lista",
+                    function () {
+                        $.ajax({
+                            type: "GET",
+                            data: {id_e: id_input},
+                            url: 'eliminar_por_id_clientes',
+                            success: function (response) {
+                                //.success('se guardaron los cambios exitosamente');
+                                lista_jefes = [];
+                                index_lista = 0;
+                                listar_tmp();
+                            },
+                            error: function (response) {
+                                alert("hubo un error del servidor");
+                            }
+                        });
+                    }
+            ,
+                    function () {//cancelo
+                    });
+
+        });
+    }
     
     
   function inicio(){
       listar_tmp();
-      
   };
   
 });

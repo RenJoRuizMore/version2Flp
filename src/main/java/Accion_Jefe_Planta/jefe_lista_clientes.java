@@ -10,6 +10,7 @@ import Logica_Negocio.pojos.Tarjeta;
 import Logica_Negocio.pojos.Usuario;
 import conexion.BaseConexion;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,6 +29,22 @@ public class jefe_lista_clientes {
     // id 
     static int id_clientes_e;
     
+    // variables para guardar datos 
+    String nombre_representante_e;
+    String razon_social_e ;
+    String email_e;
+    String pais_e;
+    String region_e;
+    String ciudad_e;
+    String direccion_e;
+    String codigo_postal_e;
+    String telefono_e;
+    String password_e;
+    // id para la actualizacion 
+    int id_persona_e;
+    int id_usuario_e;
+    int id_cliente_e;
+    int id_e;
     public List<Cliente> getLst_clientes(){
         return lst_clientes;
     }
@@ -51,6 +68,121 @@ public class jefe_lista_clientes {
        // JOptionPane.showMessageDialog(null,getId_clientes_e());
       return "success";
     }
+
+    public String getNombre_representante_e() {
+        return nombre_representante_e;
+    }
+
+    public void setNombre_representante_e(String nombre_representante_e) {
+        this.nombre_representante_e = nombre_representante_e;
+    }
+
+    public String getRazon_social_e() {
+        return razon_social_e;
+    }
+
+    public void setRazon_social_e(String razon_social_e) {
+        this.razon_social_e = razon_social_e;
+    }
+
+    public String getEmail_e() {
+        return email_e;
+    }
+
+    public void setEmail_e(String email_e) {
+        this.email_e = email_e;
+    }
+
+    public String getPais_e() {
+        return pais_e;
+    }
+
+    public void setPais_e(String pais_e) {
+        this.pais_e = pais_e;
+    }
+
+    public String getRegion_e() {
+        return region_e;
+    }
+
+    public void setRegion_e(String region_e) {
+        this.region_e = region_e;
+    }
+
+    public String getCiudad_e() {
+        return ciudad_e;
+    }
+
+    public void setCiudad_e(String ciudad_e) {
+        this.ciudad_e = ciudad_e;
+    }
+
+    public String getDireccion_e() {
+        return direccion_e;
+    }
+
+    public void setDireccion_e(String direccion_e) {
+        this.direccion_e = direccion_e;
+    }
+
+    public String getCodigo_postal_e() {
+        return codigo_postal_e;
+    }
+
+    public void setCodigo_postal_e(String codigo_postal_e) {
+        this.codigo_postal_e = codigo_postal_e;
+    }
+
+    public String getTelefono_e() {
+        return telefono_e;
+    }
+
+    public void setTelefono_e(String telefono_e) {
+        this.telefono_e = telefono_e;
+    }
+
+    public String getPassword_e() {
+        return password_e;
+    }
+
+    public void setPassword_e(String password_e) {
+        this.password_e = password_e;
+    }
+
+    public int getId_persona_e() {
+        return id_persona_e;
+    }
+
+    public void setId_persona_e(int id_persona_e) {
+        this.id_persona_e = id_persona_e;
+    }
+
+    public int getId_usuario_e() {
+        return id_usuario_e;
+    }
+
+    public void setId_usuario_e(int id_usuario_e) {
+        this.id_usuario_e = id_usuario_e;
+    }
+
+    public int getId_cliente_e() {
+        return id_cliente_e;
+    }
+
+    public void setId_cliente_e(int id_cliente_e) {
+        this.id_cliente_e = id_cliente_e;
+    }
+
+    public int getId_e() {
+        return id_e;
+    }
+
+    public void setId_e(int id_e) {
+        this.id_e = id_e;
+    }
+    
+    
+    
     // carga de datos 
     public String carga_datos_modificar(){
       /*
@@ -144,18 +276,51 @@ public class jefe_lista_clientes {
         return "success";
     }
     // guardar los clientes 
+  
     public String guardar_cliente(){
         String sql="{CALL sp_actualizar_cliente(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
         CallableStatement resul= BaseConexion.getprepareCall(sql);
         try {
-            resul.setString(1, sql);
-            
+            resul.setString(1, getNombre_representante_e());
+            resul.setString(2, getRazon_social_e());
+            resul.setString(3, getEmail_e());
+            resul.setString(4, getPais_e());
+            resul.setString(5, getRegion_e());
+            resul.setString(6, getCiudad_e());
+            resul.setString(7, getDireccion_e());
+            resul.setString(8, getCodigo_postal_e());
+            resul.setString(9, getTelefono_e());
+            resul.setString(10, getPassword_e());
+            resul.setInt(11, getId_persona_e());
+            resul.setInt(12, getId_usuario_e());
+            resul.setInt(13, getId_cliente_e());
             resul.executeUpdate();
+            return  "success";
         } catch (SQLException ex) {
             Logger.getLogger(jefe_lista_clientes.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return  "error";
         }
-        return  "";
+        
     };
+    
+    // eliminar un cliente
+    public String eliminar_jclientes(){
+    String sql="update cliente set estado = 0 where  id_cliente=" + getId_e() ;
+        PreparedStatement resul= BaseConexion.getPreparedStatement(sql);
+        try {
+            resul.executeUpdate();
+            return  "success";
+        } catch (SQLException ex) {
+            Logger.getLogger(jefe_lista_clientes.class.getName()).log(Level.SEVERE, null, ex);
+            
+            return  "error";
+        }
+    };
+    
+    
+    
+    
     
     
 }

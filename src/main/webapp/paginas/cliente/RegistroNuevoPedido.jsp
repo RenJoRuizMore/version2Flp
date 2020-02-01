@@ -6,13 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Flp</title>
-
 <!-- Bootstrap -->
 <%@include file="../source_css/enlaces_css.jsp" %>
-
+<!--
+<link href="./css/chosen/chosen.css" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet"> -->
 <style type="text/css">
     .perfil{
-		padding: 0px !important;
+	padding: 0px !important;
 	}
     .centro{
     	margin: 0px auto 0px auto !important;
@@ -123,12 +124,13 @@
                                         <input type="number" class="form-control" id="txt_max_dias"  placeholder="Ingresar Pais">
 
                                     </div>                                        
-                                    <small class="form-text text-muted">*nombre_representante</small>
+                                    <small class="form-text text-muted" id="msj_dias">*nombre_representante</small>
                                 </div>
                             </div>
                         </div>
                           
-                      
+                      <div class="row">
+                            <div class="col-md-8">
                             <div class="form-group">
                                 <label>* Responder</label>
                                 <div class="input-group" >
@@ -138,7 +140,14 @@
                                 </div>                                        
                                 <small  class="form-text text-muted">*nombre_representante</small>
                             </div>
-                        
+                            </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                                <label ></label>
+                                <button class="btn btn-primary" id="btn_calcular"> Calcular Precio</button>
+                            </div>
+                            </div>
+                      </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -213,19 +222,16 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label >Pais</label>
+                                    <label >Paises</label>
                                     <div class="input-group" >
-                                        <span class="input-group-addon">
-                                            <span class="fa fa-phone"></span>
-                                        </span>
-                                        <input type="text" class="form-control" id="txt_pais"  placeholder="Ingresar Razon SOcial">
-
+                                        
+                                        <select class="form-control " id="cbx_paisesr">
+                                        </select>
                                     </div>                                        
                                     <small  class="form-text text-muted">*nombre_representante</small>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -310,12 +316,12 @@
                     <div class="row" style="text-align: center">
                         <div class="col-md-6">
 
-                            <a href="#" class="btn btn-success" id="btn_registrar_Pedido"><i class="fa fa-check-square-o"></i> Registrar Pedido</a>
+                            <button  class="btn btn-success" id="btn_registrar_Pedido"><i class="fa fa-check-square-o"></i> Registrar Pedido</button>
 
                         </div>
                         <div class="col-md-6">
 
-                            <a href="#" class="btn btn-success"><i class="fa fa-check-square-o"></i> Cancelar Pedido </a>
+                            <button  class="btn btn-success" id="btn_cancelar_pedido"><i class="fa fa-check-square-o"></i> Cancelar Pedido </button>
 
                         </div>
                     </div>
@@ -324,16 +330,31 @@
             </div>
         </div>
     </div>
-
-
-
-
 <!--
 #################################
 - SCRIPT FILES -
 #################################
 -->
+
 <%@include file="../source_js/enlaces_js.jsp" %>
 <script type="text/javascript" src="./funciones_js/clientes/js_registrar_pedidos.js"> </script>
+<!-- <script src="./js/plugins/chosen/chosen.jquery.js"></script> -->
+
+  <script>
+      
+     /*   var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+            }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            } */
+    </script>
+
+
+</body>
 </html>
 
